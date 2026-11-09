@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Galería Personal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabecera -->
+    <header class="top-header">
+        <h1 class="logo">Galería</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div id="empty-state" class="hidden">
+            <div class="empty-icon">📸</div>
+            <h2>Aún no hay fotos</h2>
+            <p>Toca el botón + de abajo para subir la primera.</p>
+        </div>
+        <div id="photo-grid" class="grid-container"></div>
+    </main>
+
+    <!-- Barra de navegación inferior -->
+    <nav class="bottom-nav">
+        <button class="nav-item active">
+            <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+        </button>
+        
+        <!-- Botón gigante de subida -->
+        <div class="upload-container">
+            <label for="file-input" class="upload-btn">
+                <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="2" fill="none"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </label>
+            <input type="file" id="file-input" accept="image/*" multiple>
+        </div>
+
+        <button class="nav-item">
+            <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="7" r="4"></circle><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Visor de fotos en grande -->
+    <div id="lightbox" class="lightbox hidden">
+        <header class="lightbox-header">
+            <button class="icon-btn" onclick="closeLightbox()">✕</button>
+            <button class="icon-btn text-red" onclick="deleteCurrentPhoto()">🗑️ Borrar</button>
+        </header>
+        <div class="lightbox-body">
+            <img id="lightbox-img" src="" alt="Foto">
+        </div>
+    </div>
+
+    <!-- Pantalla de carga mientras se suben fotos -->
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Subiendo fotografías...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
